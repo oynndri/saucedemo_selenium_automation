@@ -8,6 +8,7 @@ import config.ConfigReader;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.ITestResult;
@@ -65,15 +66,20 @@ public class BaseTest {
             test.log(Status.FAIL,
                     "Test Failed! Error Details: " + result.getThrowable());
 
-            TakesScreenshot ts = (TakesScreenshot) driver;
+            try {
+                TakesScreenshot ts = (TakesScreenshot) driver;
 
-            String screenshotBase64 =
-                    ts.getScreenshotAs(OutputType.BASE64);
+                String screenshotBase64 =
+                        ts.getScreenshotAs(OutputType.BASE64);
 
-            test.addScreenCaptureFromBase64String(
-                    screenshotBase64,
-                    "Screenshot of the error"
-            );
+                test.addScreenCaptureFromBase64String(
+                        screenshotBase64,
+                        "Screenshot of the error"
+                );
+            } catch (WebDriverException e) {
+                test.log(Status.WARNING,
+                        "Could not capture screenshot: " + e.getMessage());
+            }
 
         } else if (result.getStatus() == ITestResult.SUCCESS) {
 

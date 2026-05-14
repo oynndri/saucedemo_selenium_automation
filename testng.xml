@@ -4,6 +4,8 @@
     <test name="Login Error Tests">
         <classes>
             <class name="tests.LoginErrorTest"/>
+            <class name="tests.StandardUserJourneyTest"/>
+            <class name="tests.GlitchUserJourneyTest"/>
         </classes>
     </test>
 </suite>
