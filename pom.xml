@@ -13,10 +13,11 @@
     <properties>
         <maven.compiler.release>17</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <selenium.version>4.43.0</selenium.version>
+        <selenium.version>4.44.0</selenium.version>
         <testng.version>7.9.0</testng.version>
         <extentreports.version>5.1.1</extentreports.version>
         <slf4j.version>1.7.36</slf4j.version>
+        <webdrivermanager.version>5.8.0</webdrivermanager.version>
     </properties>
 
     <dependencies>
@@ -43,6 +44,12 @@
             <version>${extentreports.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
+        </dependency>
+
         <!-- Test logging backend for Selenium/TestNG dependencies -->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -57,11 +64,32 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>3.5.0</version>
+                <executions>
+                    <execution>
+                        <id>enforce-java</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireJavaVersion>
+                                    <version>[17,18)</version>
+                                    <message>Use JDK 17 for this project.</message>
+                                </requireJavaVersion>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
                 <configuration>
                     <release>${maven.compiler.release}</release>
-                    <proc>none</proc>
                 </configuration>
             </plugin>
 
