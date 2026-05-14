@@ -1,6 +1,6 @@
 package config;
 
-import java.io.FileInputStream;
+import java.io.InputStream;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -9,15 +9,15 @@ public class ConfigReader {
 
     static {
         try {
-            String filePath = "src/test/resources/config.properties";
-            FileInputStream file = new FileInputStream(filePath);
-
             properties = new Properties();
-            properties.load(file);
-            file.close();
+            try (InputStream inputStream = ConfigReader.class.getClassLoader().getResourceAsStream("config.properties")) {
+                if (inputStream == null) {
+                    throw new RuntimeException("config.properties not found in test resources classpath");
+                }
+                properties.load(inputStream);
+            }
         } catch (IOException e) {
-            e.printStackTrace();
-            throw new RuntimeException("Config file not found in the path!");
+            throw new RuntimeException("Failed to load config.properties", e);
         }
     }
 
