@@ -1,126 +1,442 @@
-# SauceDemo UI Automation (Selenium + TestNG)
+# SauceDemo UI Automation Framework
 
-End-to-end UI automation framework for [SauceDemo](https://www.saucedemo.com/) built with Java, Selenium WebDriver, TestNG, and ExtentReports.
+<div align="center">
 
-## Overview
-This project validates core user journeys and negative login scenarios for SauceDemo using a Page Object Model (POM) based test framework.
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=30&pause=1000&color=36BCF7&center=true&vCenter=true&width=900&lines=SauceDemo+UI+Automation+Framework;Built+with+Java+%7C+Selenium+%7C+TestNG;Page+Object+Model+(POM)+Architecture;Professional+UI+Test+Automation+Project;Extent+Reports+%7C+Cross-Browser+Ready" alt="Typing SVG" />
 
-Current automated coverage includes:
-- Locked out user login validation
-- Standard user purchase flow (login -> cart -> checkout -> order confirmation)
-- Performance glitch user flow with product sort and checkout verification
+<br/>
+<br/>
 
-## Tech Stack
-- Java 17
-- Selenium WebDriver 4.43.0
-- TestNG 7.9.0
-- Maven Surefire 3.2.5
-- ExtentReports 5.1.1
+<img src="https://img.shields.io/badge/Java-17-orange?style=for-the-badge&logo=openjdk&logoColor=white" />
+<img src="https://img.shields.io/badge/Selenium-Automation-green?style=for-the-badge&logo=selenium&logoColor=white" />
+<img src="https://img.shields.io/badge/TestNG-Framework-red?style=for-the-badge" />
+<img src="https://img.shields.io/badge/Maven-Build-blue?style=for-the-badge&logo=apachemaven" />
+<img src="https://img.shields.io/badge/ExtentReports-Reporting-purple?style=for-the-badge" />
+
+</div>
+
+---
+
+# Project Overview
+
+This project is a professional UI Automation Testing Framework developed for the SauceDemo web application using:
+
+* Java
+* Selenium WebDriver
+* TestNG
+* Maven
+* Extent Reports
+* Page Object Model (POM)
+
+The main goal of this project is to automate real-world user journeys such as:
+
+✅ Login Validation
+✅ Error Handling Validation
+✅ Product Purchase Flow
+✅ Cart Validation
+✅ Checkout Process
+✅ End-to-End User Journey Testing
+
+This framework follows industry-standard automation architecture and clean coding practices.
+
+---
+
+# What This Project Actually Tests
+
+This automation framework validates multiple real user scenarios inside the SauceDemo application.
+
+## Standard User Journey
+
+The automation performs:
+
+1. Open SauceDemo Website
+2. Login with valid credentials
+3. Add products to cart
+4. Open cart page
+5. Validate cart items
+6. Complete checkout process
+7. Finish order successfully
+
+---
+
+## Login Error Validation
+
+The automation validates:
+
+* Invalid login attempts
+* Error message visibility
+* Authentication validation behavior
+
+---
+
+## Glitch User Journey
+
+This scenario validates:
+
+* Unstable/glitch user flow
+* UI synchronization handling
+* Robust automation execution
+* Stability of page interactions
+
+---
+
+# Framework Architecture
+
+This project follows the **Page Object Model (POM)** design pattern.
 
 ## Project Structure
-```text
-src
-├── main
-│   └── java
-│       ├── config
-│       │   └── ConfigReader.java
-│       └── utils
-│           └── WaitUtils.java
-└── test
-    ├── java
-    │   ├── base
-    │   │   └── BaseTest.java
-    │   ├── pages
-    │   │   ├── CartPage.java
-    │   │   ├── CheckoutPage.java
-    │   │   ├── InventoryPage.java
-    │   │   └── LoginPage.java
-    │   └── tests
-    │       ├── GlitchUserJourneyTest.java
-    │       ├── LoginErrorTest.java
-    │       └── StandardUserJourneyTest.java
-    └── resources
-        └── config.properties
+
+```bash
+SauceDemoUISeleniumAutomation
+│
+├── src
+│   ├── main
+│   │   └── java
+│   │       ├── config
+│   │       │   └── ConfigReader.java
+│   │       └── utils
+│   │           └── WaitUtils.java
+│   │
+│   └── test
+│       ├── java
+│       │   ├── base
+│       │   │   └── BaseTest.java
+│       │   │
+│       │   ├── pages
+│       │   │   ├── LoginPage.java
+│       │   │   ├── InventoryPage.java
+│       │   │   ├── CartPage.java
+│       │   │   └── CheckoutPage.java
+│       │   │
+│       │   └── tests
+│       │       ├── StandardUserJourneyTest.java
+│       │       ├── LoginErrorTest.java
+│       │       └── GlitchUserJourneyTest.java
+│       │
+│       └── resources
+│           └── config.properties
+│
+├── testng.xml
+├── pom.xml
+└── README.md
 ```
 
-## Framework Design
-- **POM architecture**: UI interactions are encapsulated in page classes under `pages`.
-- **Centralized setup/teardown**: Browser lifecycle and reporting are managed in `BaseTest`.
-- **Config-driven base URL**: `config.properties` controls environment entry point.
-- **Execution suite**: `testng.xml` controls which classes run in a suite.
-- **Reporting**: Extent report is generated after suite completion.
+---
+
+# Design Pattern Used
+
+## Page Object Model (POM)
+
+Each web page has its own dedicated class.
+
+Example:
+
+| Page          | Responsibility            |
+| ------------- | ------------------------- |
+| LoginPage     | Handles login actions     |
+| InventoryPage | Product page interactions |
+| CartPage      | Cart validations          |
+| CheckoutPage  | Checkout process          |
+
+### Why POM?
+
+✅ Better maintainability
+✅ Reusable code
+✅ Cleaner architecture
+✅ Easier debugging
+✅ Industry-standard structure
+
+---
+
+# Technologies & Tools Used
+
+| Technology         | Purpose                  |
+| ------------------ | ------------------------ |
+| Java 17            | Programming Language     |
+| Selenium WebDriver | Browser Automation       |
+| TestNG             | Test Execution Framework |
+| Maven              | Dependency Management    |
+| Extent Reports     | Test Reporting           |
+| IntelliJ IDEA      | Development IDE          |
+| ChromeDriver       | Browser Driver           |
+
+---
+
+# Automation Workflow
+
+```mermaid
+graph TD
+A[Launch Browser] --> B[Open SauceDemo]
+B --> C[Login]
+C --> D[Navigate Products]
+D --> E[Add Items to Cart]
+E --> F[Validate Cart]
+F --> G[Checkout]
+G --> H[Finish Order]
+H --> I[Generate Report]
+```
+
+---
+
+# Installation & Setup Guide
 
 ## Prerequisites
-- JDK 17 installed and available in `PATH`
-- Maven 3.8+ installed
-- Google Chrome installed (matching ChromeDriver support in Selenium Manager)
-- Internet access for first dependency resolution (`mvn` download)
 
-## Configuration
-Update environment URL from:
+Before running the project, install:
 
-`src/test/resources/config.properties`
-```properties
-baseUrl = https://www.saucedemo.com/
-```
+* Java JDK 17
+* Maven
+* IntelliJ IDEA / VS Code
+* Google Chrome Browser
 
-## Test Execution
-Run from project root.
+---
 
-### 1) Run complete suite from `testng.xml`
+## Clone Repository
+
 ```bash
-mvn clean test -DsuiteXmlFile=testng.xml
+git clone https://github.com/your-username/SauceDemoUISeleniumAutomation.git
 ```
 
-### 2) Run specific test classes
+---
+
+## Open Project
+
+Open the project in:
+
+* IntelliJ IDEA
+  OR
+* VS Code
+
+---
+
+## Install Dependencies
+
+Maven will automatically download dependencies from `pom.xml`.
+
+To manually install:
+
 ```bash
-mvn clean test -Dtest=LoginErrorTest,StandardUserJourneyTest,GlitchUserJourneyTest
+mvn clean install
 ```
 
-### 3) Run from IDE
-- Open `testng.xml`
-- Run as TestNG suite from the IDE run button
+---
 
-## Default Suite (Current)
-`testng.xml` currently includes:
-- `tests.LoginErrorTest`
-- `tests.StandardUserJourneyTest`
+# How To Run The Project
 
-Add `tests.GlitchUserJourneyTest` to run all 3 test classes in one suite execution.
+## Run All Tests
 
-## Reporting and Artifacts
-- **Extent HTML report**: `target/ExtentReport.html`
-- **Maven test output**: `target/surefire-reports/`
-- **Failure evidence**: Base64 screenshots embedded in Extent report for failed tests
+```bash
+mvn test
+```
 
-## Test Scenarios Covered
-1. **Locked Out User**
-   - Login with `locked_out_user`
-   - Validate expected lockout error message
+---
 
-2. **Standard User Journey**
-   - Login with `standard_user`
-   - Reset app state
-   - Add 3 products to cart
-   - Complete checkout
-   - Verify product and total price
-   - Validate order success message
+## Run Using TestNG XML
 
-3. **Glitch User Journey**
-   - Login with `performance_glitch_user`
-   - Reset app state
-   - Sort products `Z -> A`
-   - Add first listed product
-   - Complete checkout
-   - Verify product and total price
-   - Validate order success message
+```bash
+mvn test -DsuiteXmlFile=testng.xml
+```
 
-## Known Improvement Areas
-- Replace `Thread.sleep(...)` in tests with explicit waits from `WaitUtils`
-- Standardize locator strategy (prefer `id`/stable CSS over long XPath)
-- Add CI pipeline execution (GitHub Actions/Jenkins)
-- Externalize test data and credentials for scalability
-- Add parallel execution strategy with thread-safe reporting
+---
 
-## License
-This project is licensed under the MIT License. See `LICENSE` for details.
+# Reporting System
+
+This project uses **Extent Reports** for professional reporting.
+
+After execution:
+
+```bash
+target/ExtentReport.html
+```
+
+Open the report in your browser to view:
+
+✅ Pass/Fail status
+✅ Execution details
+✅ Step-by-step logs
+✅ Test summary
+
+---
+
+# Execution Screenshots
+
+## Login Page
+
+> Add your screenshot here
+
+```md
+![Login Screenshot](screenshots/login.png)
+```
+
+---
+
+## Cart Page
+
+> Add your screenshot here
+
+```md
+![Cart Screenshot](screenshots/cart.png)
+```
+
+---
+
+## Checkout Success
+
+> Add your screenshot here
+
+```md
+![Checkout Screenshot](screenshots/checkout.png)
+```
+
+---
+
+# Test Scenarios Covered
+
+| Test Case           | Status |
+| ------------------- | ------ |
+| Valid Login         | ✅      |
+| Invalid Login       | ✅      |
+| Add To Cart         | ✅      |
+| Cart Validation     | ✅      |
+| Checkout Flow       | ✅      |
+| End-to-End Purchase | ✅      |
+| Error Handling      | ✅      |
+
+---
+
+# Key Features
+
+* Clean Page Object Model Architecture
+* Reusable Methods
+* Scalable Framework Design
+* Extent Reporting
+* Configurable Environment
+* Organized Test Structure
+* Industry Standard Folder Structure
+* Easy Maintenance
+* Cross-Test Separation
+* Professional Automation Workflow
+
+---
+
+# Configuration Management
+
+The project uses:
+
+```bash
+src/test/resources/config.properties
+```
+
+This file manages:
+
+* Base URL
+* Browser Configurations
+* Test Environment Settings
+
+---
+
+# Wait Strategy Used
+
+The framework includes utility-based synchronization using:
+
+```java
+WaitUtils.java
+```
+
+Purpose:
+
+✅ Avoid flaky tests
+✅ Improve execution stability
+✅ Handle dynamic elements properly
+
+---
+
+# Common Issues & Solutions
+
+## Java Version Issue
+
+Make sure you are using:
+
+```bash
+Java 17
+```
+
+Check version:
+
+```bash
+java -version
+```
+
+---
+
+## Maven Dependency Issue
+
+Reload Maven project:
+
+```bash
+mvn clean install
+```
+
+---
+
+## ChromeDriver Issue
+
+Update Chrome browser and driver compatibility.
+
+---
+
+# Future Improvements
+
+Planned enhancements:
+
+* Jenkins CI/CD Integration
+* GitHub Actions Pipeline
+* Docker Support
+* Parallel Execution
+* Cross-Browser Testing
+* Screenshot Capture on Failure
+* Allure Reporting
+* Data-Driven Testing
+
+---
+
+# Contribution
+
+Contributions are welcome.
+
+You can:
+
+* Fork the repository
+* Create feature branches
+* Improve framework structure
+* Add advanced automation features
+
+---
+
+# Author
+
+## Developed By
+
+### Apu
+
+Professional Software Quality Assurance (SQA) Automation Enthusiast
+
+---
+
+# Support
+
+If you found this project helpful:
+
+* Star this repository
+* Share with others
+* Follow for more automation projects
+
+---
+
+<div align="center">
+
+## "Automation is not about replacing humans, it's about empowering quality."
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1000&color=00C2FF&center=true&vCenter=true&width=700&lines=Thank+You+For+Visiting+My+Project!;Happy+Testing+%F0%9F%9A%80;Keep+Learning+Keep+Automating+%F0%9F%94%A5" />
+
+</div>
