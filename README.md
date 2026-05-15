@@ -194,7 +194,7 @@ Before running the project, install:
 ## Clone Repository
 
 ```bash
-git clone https://github.com/your-username/SauceDemoUISeleniumAutomation.git
+git clone https://github.com/oynndri/saucedemo_selenium_automation
 ```
 
 ---
@@ -257,36 +257,38 @@ Open the report in your browser to view:
 ✅ Test summary
 
 ---
+## Test Execution Reports
+How to add screenshots: In GitHub's web editor, open this file for editing, then drag and drop your image directly into the editor at each placeholder location. GitHub will upload and link the image automatically. Replace the placeholder tag with the generated link.
 
-# Execution Screenshots
+## Report 1 — Overall Suite Execution Dashboard
 
-## Login Page
 
-> Add your screenshot here
 
-```md
-![Login Screenshot](screenshots/login.png)
-```
+<img width="1710" height="1112" alt="Screenshot 2026-05-14 at 8 26 54 PM" src="https://github.com/user-attachments/assets/37817bc0-1716-4c98-9c9b-dc19bdff0ee5" />
 
----
-
-## Cart Page
-
-> Add your screenshot here
-
-```md
-![Cart Screenshot](screenshots/cart.png)
-```
 
 ---
 
-## Checkout Success
+## Report 2 — Q1: Verify Locked Out User
 
-> Add your screenshot here
+<img width="1710" height="1112" alt="Screenshot 2026-05-14 at 8 22 31 PM" src="https://github.com/user-attachments/assets/824a4b5f-60ce-4d83-bddb-0aabdb8d1ab4" />
 
-```md
-![Checkout Screenshot](screenshots/checkout.png)
-```
+---
+
+## Report 3 — Q2: Standard User Journey
+
+<img width="3420" height="2224" alt="image" src="https://github.com/user-attachments/assets/cd1fa64b-f577-49a5-b4d5-ef17c68d8f8f" />
+
+
+
+
+---
+
+## Report 4 — Q3: Glitch User Journey
+
+<img width="3420" height="2224" alt="image" src="https://github.com/user-attachments/assets/df836a36-67e8-4114-9529-960f2e46c4d9" />
+
+
 
 ---
 
@@ -417,9 +419,12 @@ You can:
 
 ## Developed By
 
-### Apu
+### Oynndrila Singh Purkayestha
 
-Professional Software Quality Assurance (SQA) Automation Enthusiast
+B.Sc. in Software Engineering (2023–2027) 
+Daffodil International University (DIU)
+
+
 
 ---
 
